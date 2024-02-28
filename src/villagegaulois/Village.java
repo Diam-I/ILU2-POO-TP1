@@ -21,6 +21,18 @@ public class Village {
 	public void setChef(Chef chef) {
 		this.chef = chef;
 	}
+	
+	private static class Marche  {
+		private Etal [] etals ; 
+		
+		private Marche(int nbEtals) {
+			etals = new Etal[nbEtals];
+			
+		}
+		private void utiliserEtals (int indiceEtal , Gaulois vendeur, String produit , int nbProduit) {
+			
+		}
+	}
 
 	public void ajouterHabitant(Gaulois gaulois) {
 		if (nbVillageois < villageois.length) {
