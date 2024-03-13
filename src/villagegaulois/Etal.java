@@ -58,11 +58,17 @@ public class Etal {
 	}
 
 	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) {
-		try {
+		
 			if (acheteur == null) {
 				throw new NullPointerException("L'acheteur est null");
 			}
 			
+			if (quantiteAcheter<1) {
+				throw new IllegalArgumentException("quantité inferieur à 1");
+			}
+			if (! isEtalOccupe()) {
+				throw new IllegalArgumentException("Etal vide");
+			}
 			
 			StringBuilder chaine = new StringBuilder();
 			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
@@ -85,10 +91,7 @@ public class Etal {
 						+ vendeur.getNom() + "\n");
 			}
 			return chaine.toString();
-		}catch (IllegalArgumentException e){
-			e.printStackTrace();
-			return "";
-		}
+		
 			
 		
 	}

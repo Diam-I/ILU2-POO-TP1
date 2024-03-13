@@ -53,14 +53,24 @@ public class Village {
 		}
 
 		private Etal[] trouverEtals(String produit) {
-			Etal[] etalsProduit =  new Etal[etals.length];
-			int indice = 0;
+			
+			int nb = 0;
 			for (int i = 0; i < etals.length; i++) {
-				if (etals[i].contientProduit(produit)) {
-					etalsProduit[indice] = etals[i];
-					indice++;
+				if (etals[i].isEtalOccupe()&& etals[i].contientProduit(produit)) {
+					nb++;
 				}
 			}
+			int j = 0 ;
+			Etal[] etalsProduit =  new Etal[nb];
+			for (int i=0 ;i<etals.length;i++) {
+				if (etals[i].isEtalOccupe()&& etals[i].contientProduit(produit)) {
+					etalsProduit[j] = etals[i];
+					j++ ;
+				}
+				
+
+			}
+			
 			return etalsProduit;
 		}
 

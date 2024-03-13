@@ -17,6 +17,11 @@ public class ScenarioCasDegrade {
 		}catch (IllegalArgumentException e) {
 			System.out.println("Quantité de produit négatif");
 		}
+		try {
+			etal.acheterProduit(1,asterix);
+		}catch (IllegalArgumentException e) {
+			System.out.println("Etal pas occupé");
+		}
 		
 	}
 }
