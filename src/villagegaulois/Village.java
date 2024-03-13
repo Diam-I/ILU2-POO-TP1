@@ -29,6 +29,9 @@ public class Village {
 
 		private Marche(int nbEtals) {
 			this.etals = new Etal[nbEtals];
+			for(int i=0 ; i<nbEtals ; i++) {
+				this.etals[i] = new Etal() ;
+			}
 
 		}
 
@@ -50,8 +53,7 @@ public class Village {
 		}
 
 		private Etal[] trouverEtals(String produit) {
-			Etal[] etalsProduit;
-			etalsProduit = new Etal[etals.length];
+			Etal[] etalsProduit =  new Etal[etals.length];
 			int indice = 0;
 			for (int i = 0; i < etals.length; i++) {
 				if (etals[i].contientProduit(produit)) {
