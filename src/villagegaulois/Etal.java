@@ -57,17 +57,17 @@ public class Etal {
 		return "L'étal est libre";
 	}
 
-	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) {
+	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) throws 	IllegalArgumentException, IllegalStateException{
 		
 			if (acheteur == null) {
-				throw new NullPointerException("L'acheteur est null");
+				throw new IllegalArgumentException("L'acheteur est null");
 			}
 			
 			if (quantiteAcheter<1) {
 				throw new IllegalArgumentException("quantité inferieur à 1");
 			}
 			if (! isEtalOccupe()) {
-				throw new IllegalArgumentException("Etal vide");
+				throw new IllegalStateException("Etal vide");
 			}
 			
 			StringBuilder chaine = new StringBuilder();
